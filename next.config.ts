@@ -4,7 +4,16 @@ const nextConfig: NextConfig = {
   /* config options here */
   reactStrictMode: true,
   images: {
-    remotePatterns: [new URL(`${process.env.NEXT_PUBLIC_CDN_URL}`)],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cdn.ata.uz",
+      },
+      {
+        protocol: "https",
+        hostname: "cdn-don-dev.ata.uz",
+      },
+    ],
   },
 };
 
