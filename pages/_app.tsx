@@ -1,22 +1,6 @@
-import Image from "next/image";
-import { useSearchParams } from "next/navigation";
+import "@/styles/globals.css";
+import type { AppProps } from "next/app";
 
-export default function App() {
-  const searchParams = useSearchParams();
-  const w = searchParams.get("w");
-  const h = searchParams.get("h");
-  const q = searchParams.get("q");
-  const src = searchParams.get("src");
-  const objectFit = searchParams.get("objectFit");
-
-  return (
-    <Image
-      src={src ? decodeURIComponent(src) : ""}
-      alt="Compressed image"
-      width={w ? parseInt(w) : 0}
-      height={h ? parseInt(h) : 0}
-      quality={q ? parseInt(q) : 0}
-      objectFit={objectFit ? (objectFit as any) : "cover"}
-    />
-  );
+export default function App({ Component, pageProps }: AppProps) {
+  return <Component {...pageProps} />;
 }
